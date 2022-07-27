@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{ 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    background: brown;
+}
+.pagination{
+    display: flex;
+    column-gap: 16px;
+}
+input[name="page"] {
+    display: none;
+}
+label{
+    width: 48px;
+    height: 48px;    
+    border-radius: 50%;    
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+label::before {
+    position: absolute;
+    content: "";    
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid white;
+    z-index: -1;
+    transform: scale(0);
+    transition: all 0.3s;
+}
+input[name="page"]:checked ~ label::before {
+    transform: scale(1);
+}
+input[name="page"]:checked ~ label{
+    color: brown;
+}
